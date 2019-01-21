@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>nameValidate</title>
+</head>
+<script>
+  window.onload = function() {
+    const trigger = document.getElementById('js-open-list');
+    const prefectureList = document.getElementById('js-prefecture-list');
+    let clickStatus = false;
+
+    function changeStatus() {
+      if (clickStatus) {
+        clickStatus = false;
+      } else {
+        clickStatus = true;
+      }
+    }
+
+    function toggleList() {
+      if(clickStatus){
+        prefectureList.classList.remove('show');
+        prefectureList.classList.add('hide');
+      } else {
+        prefectureList.classList.remove('hide');
+        prefectureList.classList.add('show');
+      }
+      changeStatus();
+    }
+
+    trigger.addEventListener('click', toggleList);
+
+  }
+  //https://developer.mozilla.org/ja/docs/Learn/HTML/Forms/Data_form_validation
+</script>
+<style>
+
+</style>
+<body>
+  <form>
+    <div>
+      名前
+      <span>必須</span>
+      <input id='firstName' name='firstName' placeholder='田中' required pattern='hoge'>
+      <input id='lastName' name='lastName' placeholder='太郎丸' required pattern='hoge'>
+    </div>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
